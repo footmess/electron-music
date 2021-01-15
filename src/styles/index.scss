@@ -18,10 +18,16 @@ body {
 	font-family: Helvetica Neue, Helvetica, PingFang SC, Hiragino Sans GB, Microsoft YaHei, Arial, sans-serif;
 	width: 100vw;
 	overflow: hidden;
+	cursor: url(../assets/img/defaultcur.png), default;
+	-webkit-app-region: drag;
 }
 
 label {
 	font-weight: 700;
+}
+
+button {
+	-webkit-app-region: no-drag;
 }
 
 img {
@@ -39,10 +45,6 @@ img {
 
 svg {
 	width: 100%;
-	height: 100%;
-}
-
-#app {
 	height: 100%;
 }
 

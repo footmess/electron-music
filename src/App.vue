@@ -1,31 +1,50 @@
 <template>
   <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </div>
+    <header class="header-container">
+      <i @click="minimize" class="fa fa-minus" aria-hidden="true"></i>
+      <i @click="close" class="fa fa-times" aria-hidden="true"></i>
+    </header>
     <router-view />
   </div>
 </template>
 
+<script>
+const { ipcRenderer } = window.require("electron");
+export default {
+  name: "App",
+  methods: {
+    close() {
+      ipcRenderer.send("close");
+    },
+    minimize() {
+      ipcRenderer.send("minimize");
+    }
+  }
+};
+</script>
 <style lang="scss">
 #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
-
-#nav {
-  padding: 30px;
-
-  a {
-    font-weight: bold;
-    color: #2c3e50;
-
-    &.router-link-exact-active {
-      color: #42b983;
+  width: 100vw;
+  height: 100vh;
+  background: radial-gradient(ellipse at center, #474553 0%, #292830 100%);
+  .header-container {
+    width: 100%;
+    text-align: right;
+    i {
+      padding: 5px 10px;
+      border-radius: 5px;
+      background-color: transparent;
+      &:hover {
+        cursor: url(./assets/img/pointer.png), pointer;
+        background: #413f4c;
+      }
+    }
+    .fa {
+      -webkit-app-region: no-drag;
+      margin: 5px 5px 0px 0px;
+      font-size: 28px;
+      color: #ffffff;
+      font-weight: 200;
     }
   }
 }
