@@ -7,7 +7,7 @@
       <div id="waveform" ref="waveform"></div>
       <div class="player_controls">
         <button @click="playPre(filePath)" class="btn">
-          <i class="fa fa-backword"></i>
+          <i class="fa fa-backward"></i>
         </button>
         <button @click="playMusic" class="btn">
           <i v-if="playing" class="fa fa-fw fa-pause"></i
