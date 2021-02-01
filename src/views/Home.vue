@@ -40,12 +40,13 @@
 
 <script>
 import WaveSurfer from "wavesurfer.js";
+import { ipcRenderer, remote } from "electron";
 var path = require("path");
 var fs = require("fs");
+// const {ipcRenderer} = window.require("electron");
+// const remote = require("electron").remote;
 const { Readable } = require("stream");
 const streamToBlob = require("stream-to-blob");
-const { ipcRenderer } = window.require("electron");
-const remote = require("electron").remote;
 
 export default {
   name: "Home",
@@ -64,7 +65,8 @@ export default {
   mounted() {
     this.initWave();
     // 首次加载
-    const originPath = remote.process.argv[1];
+    // const originPath = remote.process.argv[1];
+    const originPath = 'I:\\CloudMusic\\宮野幸子,森下唯 - 月華の円舞曲 -Valse di Fantastica-.mp3';
     this.loadMusic(originPath);
 
     // 监听主进程传来的第二首歌的本地路劲
@@ -132,7 +134,7 @@ export default {
       this.wavesurfer.playPause.bind(this.wavesurfer)();
     },
 
-    // 修改进度条
+    // 调节音量
     changeVol(e) {
       console.log({ e });
       const { value, min, max } = e.target;
@@ -181,7 +183,6 @@ export default {
 
 <style lang="scss" scoped>
 .mixin-components-container {
-  // padding-top: 60px;
   .title-box {
     width: 200px;
     margin: 0 auto;

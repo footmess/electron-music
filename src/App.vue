@@ -9,7 +9,7 @@
 </template>
 
 <script>
-const { ipcRenderer } = window.require("electron");
+import { ipcRenderer } from "electron";
 export default {
   name: "App",
   methods: {
