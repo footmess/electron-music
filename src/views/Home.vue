@@ -5,7 +5,7 @@
         <p class="songName">{{ songName }}</p>
       </div>
       <div id="waveform" ref="waveform"></div>
-      <div class="player_controls">
+      <div class="player__controls">
         <button @click="playPre(filePath)" class="btn">
           <i class="fa fa-backward"></i>
         </button>
@@ -14,7 +14,7 @@
           ><i v-else class="fa fa-fw fa-play"></i>
         </button>
         <button @click="playNext(filePath)" class="btn">
-          <i v-if="playing" class="fa fa-forward"></i>
+          <i class="fa fa-forward"></i>
         </button>
         <button class="btn">
           <div class="volum-control">
@@ -197,17 +197,6 @@ export default {
       animation: 10s wordsLoop linear infinite normal;
     }
     @keyframes wordsLoop {
-      0% {
-        transform: translateX(200px);
-        -webkit-transform: translateX(200px);
-      }
-      100% {
-        transform: translateX(-100%);
-        -webkit-transform: translateX(-100%);
-      }
-    }
-
-    @-webkit-keyframes wordsLoop {
       0% {
         transform: translateX(200px);
         -webkit-transform: translateX(200px);
